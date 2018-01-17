@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using odetofood.Services;
 
 namespace odetofood
 {
@@ -16,6 +17,7 @@ namespace odetofood
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
             services.AddMvc();
         }
 
@@ -24,7 +26,6 @@ namespace odetofood
         {
             if (env.IsDevelopment())
             {
-               
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
