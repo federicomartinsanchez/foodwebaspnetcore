@@ -22,5 +22,17 @@ namespace odetofood.Controllers
             var model = _restaurantData.GetAll();
             return View(model);
         }
+        public IActionResult Details(int id)
+        {
+            var model = _restaurantData.Get(id);
+            if (model == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View(model);
+            }
+        }
     }
 }
