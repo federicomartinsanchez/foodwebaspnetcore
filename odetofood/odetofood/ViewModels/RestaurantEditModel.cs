@@ -1,19 +1,16 @@
-﻿using System;
+﻿using odetofood.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace odetofood.Models
+namespace odetofood.ViewModels
 {
-    public class Restaurant
+    public class RestaurantEditModel
     {
-        public int Id { get; set; }
-
-        [Display(Name= "Restaurant Name")]
         [Required, MaxLength(80)]
         public string Name { get; set; }
         public CuisineType Cuisine { get; set; }
-
     }
 }
