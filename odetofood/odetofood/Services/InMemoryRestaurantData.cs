@@ -34,6 +34,11 @@ namespace odetofood.Services
             return restaurant;
         }
 
+        public Restaurant Edit(Restaurant restaurant, int id)
+        {
+            throw new NotImplementedException();
+        }
+
         List<Restaurant> _restaurants;
     }
 }

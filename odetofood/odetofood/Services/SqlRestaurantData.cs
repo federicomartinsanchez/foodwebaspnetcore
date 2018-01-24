@@ -27,6 +27,16 @@ namespace odetofood.Services
             return _context.Restaurants.FirstOrDefault(r => r.Id == id);
         }
 
+        public Restaurant Edit(Restaurant restaurant, int id)
+        {
+            Restaurant edit = _context.Restaurants.FirstOrDefault(r => r.Id == id);
+
+            edit.Name = restaurant.Name;
+            edit.Cuisine = restaurant.Cuisine;
+            _context.SaveChanges();
+
+            return edit;
+        }
         public IEnumerable<Restaurant> GetAll()
         {
             return _context.Restaurants.OrderBy(r => r.Name);

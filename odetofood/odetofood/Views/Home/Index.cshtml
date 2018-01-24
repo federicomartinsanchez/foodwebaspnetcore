@@ -1,22 +1,24 @@
 ﻿@model IEnumerable<odetofood.Models.Restaurant>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>Welcome to the home page!</h1>
-    <table>
-        @foreach (var restaurant in Model)
-        {
+@{ 
+    ViewBag.Title = "Home Page";
+}
+<h1>Welcome to the home page!</h1>
+<table>
+    @foreach (var restaurant in Model)
+    {
         <tr>
             <td>@restaurant.Id</td>
             <td>@restaurant.Name</td>
             <td>
                 <a asp-action="Details" asp-route-id="@restaurant.Id">Details</a>
+                <a asp-action="Edit" asp-route-id="@restaurant.Id">Edit</a>
+
             </td>
         </tr>
-        }
-    </table>
-    <a asp-action="Create">Create Restaurant</a>
-</body>
-</html>
+    }
+</table>
+<a asp-action="Create">Create Restaurant</a>
+
+@section footer{ 
+    "Hello"
+}
